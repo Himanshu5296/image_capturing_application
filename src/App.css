@@ -1,0 +1,19 @@
+.App {
+  margin: 20px;
+}
+
+.a-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.a-container button {
+  height: 40px;
+  width: 100px;
+  margin: 4vh 0;
+}
+
+.a-container button:hover {
+  background-color: cadetblue;
+}
