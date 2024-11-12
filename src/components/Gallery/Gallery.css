@@ -1,19 +1,22 @@
 .g-container{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
+    gap: 15px;
     margin: 20px;
 }
 
 .g-container-div{
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .g-image{
     width: 100%;
     height: auto;
     transition: transform 0.3s;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .g-image:hover{
@@ -22,14 +25,14 @@
 
 .delete-button{
     position: absolute;
-    top: 5px;
-    right: 5px;
-    background: rgb(202, 17, 17);
-    color: white;
+    top: 7px;
+    right: 7px;
+    /* background: rgb(226, 217, 217); */
+    /* color: white; */
     border: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    /* border-radius: 50%; */
+    width: 15px;
+    height: 15px;
     cursor: pointer;
 }
 
@@ -48,8 +51,9 @@
   
   .modal-content {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 50%;
+    max-height: 50%;
+    margin: auto;
   }
   
   .modal-image {

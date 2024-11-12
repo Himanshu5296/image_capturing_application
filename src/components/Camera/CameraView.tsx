@@ -67,13 +67,28 @@ const CameraView: React.FC<CameraViewProps> = ({
     if (videoRef.current && canvasRef.current) {
       const canvas = canvasRef.current;
       const video = videoRef.current;
+
+      // Set canvas dimensions to match the video feed
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
-      const context = canvas.getContext("2d");
 
+      const context = canvas.getContext('2d');
       if (context) {
+        // Clear the canvas before drawing
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Apply zoom by scaling the canvas context
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        context.translate(centerX, centerY);
+        context.scale(zoom, zoom);
+        context.translate(-centerX, -centerY);
+
+        // Draw the video frame onto the canvas with the zoom effect
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        const image = canvas.toDataURL("image/png");
+
+        // Capture the image
+        const image = canvas.toDataURL('image/png');
         onCapture(image);
         setShowGallery(true);
       }
@@ -85,7 +100,7 @@ const CameraView: React.FC<CameraViewProps> = ({
       <div className="camera-view">
         <video
           ref={videoRef}
-          style={{ transform: `scale(${zoom})` }}
+          style={{ transform: `scale(${zoom})`,aspectRatio: aspectRatio.replace(':', '/'), }}
           className="camera-video"
         />
         <canvas ref={canvasRef} style={{ display: "none" }} />
@@ -115,7 +130,7 @@ const CameraView: React.FC<CameraViewProps> = ({
 
         {/* Capture Button */}
         <button className="capture-button" onClick={handleCapture}>
-          Capture
+          Click
         </button>
 
         {/* Rotate Button (Icon) */}

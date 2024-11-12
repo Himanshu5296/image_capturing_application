@@ -1,5 +1,6 @@
 .App {
   margin: 20px;
+  padding: 0px 15px;
 }
 
 .a-container {
@@ -11,7 +12,7 @@
 .a-container button {
   height: 40px;
   width: 100px;
-  margin: 4vh 0;
+  margin: 3vh 0;
 }
 
 .a-container button:hover {
