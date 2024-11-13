@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import Rotate from "../../assests/Gallery/rotate.png"
 import "./CameraView.css";
 
 interface CameraViewProps {
@@ -107,14 +108,16 @@ const CameraView: React.FC<CameraViewProps> = ({
 
         {/* Aspect Ratio Selector */}
         <div className="aspect-ratio-selector">
-          <label>Aspect Ratio:</label>
+          <label>Aspect Ratio: </label>
+          <br/>
           <select
             value={aspectRatio}
+            style={{background:"transparent",color:"#ccc"}}
             onChange={(e) => setAspectRatio(e.target.value)}
           >
-            <option value="16:9">16:9</option>
-            <option value="4:3">4:3</option>
-            <option value="1:1">1:1</option>
+            <option style={{background:"transparent"}} value="16:9">16:9</option>
+            <option style={{background:"transparent"}} value="4:3">4:3</option>
+            <option style={{background:"transparent"}} value="1:1">1:1</option>
           </select>
         </div>
 
@@ -134,14 +137,14 @@ const CameraView: React.FC<CameraViewProps> = ({
         </button>
 
         {/* Rotate Button (Icon) */}
-        <button
+        <div
           className="rotate-button"
           onClick={() =>
             setFacingMode(facingMode === "user" ? "environment" : "user")
           }
         >
-          🔄
-        </button>
+          <img src={Rotate} alt="rotate icon"/>
+        </div>
       </div>
     </div>
   );
